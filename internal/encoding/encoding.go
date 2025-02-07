@@ -262,7 +262,7 @@ func NewDecoder(ctx *cue.Context, f *build.File, cfg *Config) *Decoder {
 		i.err = err
 		i.expr = ast.NewString(string(b))
 	case build.Binary:
-		b, err := io.ReadAll(r)
+		b, err := io.ReadAll(srcr)
 		i.err = err
 		s := literal.Bytes.WithTabIndent(1).Quote(string(b))
 		i.expr = ast.NewLit(token.STRING, s)
